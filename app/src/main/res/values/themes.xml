@@ -30,4 +30,17 @@
     <style name="TextAppearance.Hahowrecruit.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
+
+    <!--預設文字樣式 移除原生padding-->
+    <style name="NoPaddingTextView" parent="TextAppearance.AppCompat">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!--類別標題文字-->
+    <style name="CategoryTitleText" parent="NoPaddingTextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/base_headline</item>
+        <item name="android:textColor">@color/hahow_black</item>
+    </style>
+
 </resources>

@@ -1,31 +1,42 @@
 package com.alex.hahow_recruit
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.alex.hahow_recruit.adapters.HahowClassListAdapter
+import com.alex.hahow_recruit.databinding.FragmentHahowClassListBinding
+import com.alex.hahow_recruit.utilities.InjectorUtils
+import com.alex.hahow_recruit.viewmodels.HahowClassListViewModel
 
 class HahowClassListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HahowClassListFragment()
+    private val viewModel: HahowClassListViewModel by viewModels {
+        InjectorUtils.provideHahowClassListViewModelFactory(this)
     }
-
-    private lateinit var viewModel: HahowClassListViewModel
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_hahow_class_list, container, false)
+        val binding = FragmentHahowClassListBinding.inflate(inflater, container, false)
+        context ?: return binding.root
+        Log.e("Alex", "onCreateView")
+
+        val adapter = HahowClassListAdapter()
+        binding.hahowClassList.adapter = adapter
+        subscribeUi(adapter)
+
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HahowClassListViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun subscribeUi(adapter: HahowClassListAdapter) {
+        viewModel.datas.observe(viewLifecycleOwner) { datas ->
+            adapter.submitList(datas)
+        }
     }
-
 }
