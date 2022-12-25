@@ -1,10 +1,8 @@
 {
-    "data":
-    [
+    "data": [
         {
             "category": "programming",
-            "courses":
-            [
+            "courses": [
                 {
                     "title": "Node.js、MongoDB 網站後端工程入門",
                     "coverImageUrl": "https://images.api.hahow.in/images/60dd8d8b7c18330007b74c9d",
@@ -33,8 +31,7 @@
         },
         {
             "category": "design",
-            "courses":
-            [
+            "courses": [
                 {
                     "title": "設計物印刷無痛上手 | 打造品牌識別一致性",
                     "name": "Abingo",
@@ -63,8 +60,7 @@
         },
         {
             "category": "language",
-            "courses":
-            [
+            "courses": [
                 {
                     "title": "職場英文大補帖｜必勝簡報方程式",
                     "coverImageUrl": "https://images.api.hahow.in/images/60a3c5ce7f62c280ae17b861",
@@ -93,8 +89,7 @@
         },
         {
             "category": "music",
-            "courses":
-            [
+            "courses": [
                 {
                     "name": "SV科學歌唱",
                     "title": "SV 科學歌唱｜用運動科學高效學唱歌",

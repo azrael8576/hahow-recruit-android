@@ -8,6 +8,10 @@ class HahowClassListViewModel internal constructor(
     dataRepository: DataRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    private val _DataRepository = dataRepository
+    val datas: LiveData<List<Data>> = _DataRepository.getDatas()
 
-    val datas: LiveData<List<Data>> = dataRepository.getDatas()
+    fun getData(category: String): LiveData<Data> {
+        return _DataRepository.getData(category)
+    }
 }

@@ -43,4 +43,10 @@
         <item name="android:textColor">@color/hahow_black</item>
     </style>
 
+    <!--課程標題文字-->
+    <style name="CoursesTitleText" parent="NoPaddingTextView">
+        <item name="android:textSize">@dimen/base_titleline</item>
+        <item name="android:textColor">@color/hahow_black</item>
+    </style>
+
 </resources>

@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
             //模擬登入連線時間
             delay(3000)
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
         }
     }
 }

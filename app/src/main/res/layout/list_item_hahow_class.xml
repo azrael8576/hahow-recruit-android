@@ -2,18 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="@dimen/margin_normal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+
     <ImageView
-        android:id="@+id/hahow_class_item_image"
-        android:layout_width="wrap_content"
+        android:id="@+id/imageview_hahow_class"
+        android:layout_width="@dimen/card_item_image_width"
         android:layout_height="@dimen/card_item_image_height"
+        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/margin_small"
         android:orientation="vertical">
 
         <TextView
@@ -22,10 +27,9 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:ellipsize="end"
-            android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:layout_marginBottom="@dimen/margin_normal"
-            android:text="Node.js、MongoDB 網站後端工程入門" />
+            style="@style/CoursesTitleText"
+            android:layout_marginBottom="@dimen/margin_small"
+            tools:text="Node.js、MongoDB 網站後端工程入門" />
 
         <TextView
             android:id="@+id/hahow_class_author"
@@ -33,7 +37,6 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_marginStart="@dimen/margin_small"
-            android:text="彭彭" />
+            tools:text="彭彭" />
     </LinearLayout>
 </LinearLayout>

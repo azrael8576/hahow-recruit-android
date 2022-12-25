@@ -11,7 +11,7 @@ import androidx.room.Query
  */
 @Dao
 interface DataDao {
-    @Query("SELECT * FROM datas ORDER BY category")
+    @Query("SELECT * FROM datas ORDER BY id")
     fun getDatas(): LiveData<List<Data>>
 
     @Query("SELECT * FROM datas WHERE category = :category")

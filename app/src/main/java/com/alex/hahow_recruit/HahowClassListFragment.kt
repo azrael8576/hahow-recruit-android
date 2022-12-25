@@ -1,18 +1,19 @@
 package com.alex.hahow_recruit
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.alex.hahow_recruit.adapters.HahowClassCoursesAdapter
 import com.alex.hahow_recruit.adapters.HahowClassListAdapter
+import com.alex.hahow_recruit.adapters.IOnHahowClassListAdapterListener
 import com.alex.hahow_recruit.databinding.FragmentHahowClassListBinding
 import com.alex.hahow_recruit.utilities.InjectorUtils
 import com.alex.hahow_recruit.viewmodels.HahowClassListViewModel
 
-class HahowClassListFragment : Fragment() {
+class HahowClassListFragment : Fragment(), IOnHahowClassListAdapterListener {
 
     private val viewModel: HahowClassListViewModel by viewModels {
         InjectorUtils.provideHahowClassListViewModelFactory(this)
@@ -24,9 +25,8 @@ class HahowClassListFragment : Fragment() {
     ): View? {
         val binding = FragmentHahowClassListBinding.inflate(inflater, container, false)
         context ?: return binding.root
-        Log.e("Alex", "onCreateView")
 
-        val adapter = HahowClassListAdapter()
+        val adapter = HahowClassListAdapter(this)
         binding.hahowClassList.adapter = adapter
         subscribeUi(adapter)
 
@@ -37,6 +37,12 @@ class HahowClassListFragment : Fragment() {
     private fun subscribeUi(adapter: HahowClassListAdapter) {
         viewModel.datas.observe(viewLifecycleOwner) { datas ->
             adapter.submitList(datas)
+        }
+    }
+
+    override fun onSubscribeUi(adapter: HahowClassCoursesAdapter, category: String) {
+        viewModel.getData(category).observe(viewLifecycleOwner) { data ->
+            adapter.submitList(data.courses)
         }
     }
 }
