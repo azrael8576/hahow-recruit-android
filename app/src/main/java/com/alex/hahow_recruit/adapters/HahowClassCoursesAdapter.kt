@@ -1,12 +1,12 @@
 package com.alex.hahow_recruit.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.alex.hahow_recruit.HahowClassListFragment
 import com.alex.hahow_recruit.HahowClassListFragmentDirections
 import com.alex.hahow_recruit.data.Courses
 import com.alex.hahow_recruit.databinding.ListFirstItemHahowClassBinding
@@ -16,6 +16,16 @@ import com.bumptech.glide.Glide
 
 enum class ItemViewType {
     FIRST_ITEM, OTHER_ITEM
+}
+
+fun actionToHahowClassDetailFragment(item: Courses): View.OnClickListener {
+    return View.OnClickListener { view ->
+        val direction =
+            HahowClassListFragmentDirections.actionHahowClassListFragmentToHahowClassDetailFragment(
+                item
+            )
+        view.findNavController().navigate(direction)
+    }
 }
 
 /**
@@ -89,19 +99,13 @@ class HahowClassCoursesAdapter : ListAdapter<Courses, RecyclerView.ViewHolder>(H
         fun bind(item: Courses) {
             binding.apply {
                 if (item.coverImageUrl.isNotEmpty()) {
-                    Glide.with(binding.root.context)
+                    Glide.with(root.context)
                         .load(item.coverImageUrl)
-                        .into(binding.imageviewHahowClass)
+                        .into(imageviewHahowClass)
                 }
-                binding.hahowClassTittle.text = item.title
-                binding.hahowClassAuthor.text = item.name
-                binding.root.setOnClickListener{
-                    val direction =
-                        HahowClassListFragmentDirections.actionHahowClassListFragmentToHahowClassDetailFragment(
-                            item
-                        )
-                    it.findNavController().navigate(direction)
-                }
+                hahowClassTittle.text = item.title
+                hahowClassAuthor.text = item.name
+                root.setOnClickListener(actionToHahowClassDetailFragment(item))
             }
         }
     }
@@ -113,12 +117,13 @@ class HahowClassCoursesAdapter : ListAdapter<Courses, RecyclerView.ViewHolder>(H
         fun bind(item: Courses) {
             binding.apply {
                 if (item.coverImageUrl.isNotEmpty()) {
-                    Glide.with(binding.root.context)
+                    Glide.with(root.context)
                         .load(item.coverImageUrl)
-                        .into(binding.imageviewHahowClass)
+                        .into(imageviewHahowClass)
                 }
-                binding.hahowClassTittle.text = item.title
-                binding.hahowClassAuthor.text = item.name
+                hahowClassTittle.text = item.title
+                hahowClassAuthor.text = item.name
+                root.setOnClickListener(actionToHahowClassDetailFragment(item))
             }
         }
     }

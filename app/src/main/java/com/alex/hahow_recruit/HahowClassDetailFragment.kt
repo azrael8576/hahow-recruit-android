@@ -11,29 +11,40 @@ import com.bumptech.glide.Glide
 
 class HahowClassDetailFragment : Fragment() {
 
+    private var binding: FragmentHahowClassDetailBinding? = null
     private val args: HahowClassDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentHahowClassDetailBinding.inflate(inflater, container, false)
-        context ?: return binding.root
-
-        initView(binding)
-
-        setHasOptionsMenu(true)
-        return binding.root
+        val fragmentBinding = FragmentHahowClassDetailBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
     }
 
-    private fun initView(binding: FragmentHahowClassDetailBinding) {
-        if (args.courses.coverImageUrl.isNotEmpty()) {
-            Glide.with(binding.root.context)
-                .load(args.courses.coverImageUrl)
-                .into(binding.imageviewHahowClass)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply {
+            if (args.courses.coverImageUrl.isNotEmpty()) {
+                Glide.with(root.context)
+                    .load(args.courses.coverImageUrl)
+                    .into(imageviewHahowClass)
+            }
+            hahowClassTittle.text = args.courses.title
+            hahowClassAuthor.text = args.courses.name
+
+            setHasOptionsMenu(true)
         }
-        binding.hahowClassTittle.text = args.courses.title
-        binding.hahowClassAuthor.text = args.courses.name
     }
 
+    /**
+     * This fragment lifecycle method is called when the view hierarchy associated with the fragment
+     * is being removed. As a result, clear out the binding object.
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 }

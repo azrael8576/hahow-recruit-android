@@ -15,23 +15,31 @@ import com.alex.hahow_recruit.viewmodels.HahowClassListViewModel
 
 class HahowClassListFragment : Fragment(), IOnHahowClassListAdapterListener {
 
+    private var binding: FragmentHahowClassListBinding? = null
     private val viewModel: HahowClassListViewModel by viewModels {
         InjectorUtils.provideHahowClassListViewModelFactory(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentHahowClassListBinding.inflate(inflater, container, false)
-        context ?: return binding.root
+        val fragmentBinding = FragmentHahowClassListBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
+    }
 
-        val adapter = HahowClassListAdapter(this)
-        binding.hahowClassList.adapter = adapter
-        subscribeUi(adapter)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        setHasOptionsMenu(true)
-        return binding.root
+        binding?.apply {
+            val adapter = HahowClassListAdapter(this@HahowClassListFragment)
+            hahowClassList.adapter = adapter
+            subscribeUi(adapter)
+
+            setHasOptionsMenu(true)
+        }
     }
 
     private fun subscribeUi(adapter: HahowClassListAdapter) {
@@ -44,5 +52,10 @@ class HahowClassListFragment : Fragment(), IOnHahowClassListAdapterListener {
         viewModel.getData(category).observe(viewLifecycleOwner) { data ->
             adapter.submitList(data.courses)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

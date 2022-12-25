@@ -35,9 +35,9 @@ class HahowClassListAdapter(private val onHahowClassListAdapterListener: IOnHaho
 
         fun bind(item: Data, onHahowClassListAdapterListener: IOnHahowClassListAdapterListener) {
             binding.apply {
-                binding.hahowClassCategory.text = item.category
+                hahowClassCategory.text = item.category
                 val adapter = HahowClassCoursesAdapter()
-                binding.recyclerViewCourses.adapter = adapter
+                recyclerViewCourses.adapter = adapter
                 onHahowClassListAdapterListener?.onSubscribeUi(adapter, item.category)
             }
         }
