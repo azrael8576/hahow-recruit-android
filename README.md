@@ -19,7 +19,7 @@
 ## 設計概念
 
 * 採 MVVM Design Pattern, 所有業務邏輯皆撰寫於 ViewModel 中, 透過 ViewModelFactory 提供 ViewModel類.
-* 從伺服器端提取(local json file模擬)課程後會儲存於 Local Storage 中
+* 從伺服器端提取課程(local json file模擬)後會儲存於 Local Storage 中
 * 開啟畫面由 LoginActivity 模擬登入 or 驗證身分頁
 
 ### Third Party Library 
