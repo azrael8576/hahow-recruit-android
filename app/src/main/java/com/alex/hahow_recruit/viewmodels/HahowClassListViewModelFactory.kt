@@ -8,7 +8,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import com.alex.hahow_recruit.data.DataRepository
 
 /**
- * Factory for creating a [PlantListViewModel] with a constructor that takes a [PlantRepository].
+ * Factory for creating a [HahowClassListViewModel] with a constructor that takes a [DataRepository].
  */
 class HahowClassListViewModelFactory(
     private val repository: DataRepository,

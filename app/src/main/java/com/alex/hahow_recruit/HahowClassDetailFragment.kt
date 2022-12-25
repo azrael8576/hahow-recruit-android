@@ -1,31 +1,39 @@
 package com.alex.hahow_recruit
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
+import com.alex.hahow_recruit.databinding.FragmentHahowClassDetailBinding
+import com.bumptech.glide.Glide
 
 class HahowClassDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HahowClassDetailFragment()
-    }
-
-    private lateinit var viewModel: HahowClassDetailViewModel
+    private val args: HahowClassDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_hahow_class_detail, container, false)
+        val binding = FragmentHahowClassDetailBinding.inflate(inflater, container, false)
+        context ?: return binding.root
+
+        initView(binding)
+
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HahowClassDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initView(binding: FragmentHahowClassDetailBinding) {
+        if (args.courses.coverImageUrl.isNotEmpty()) {
+            Glide.with(binding.root.context)
+                .load(args.courses.coverImageUrl)
+                .into(binding.imageviewHahowClass)
+        }
+        binding.hahowClassTittle.text = args.courses.title
+        binding.hahowClassAuthor.text = args.courses.name
     }
 
 }

@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_hahow_class_detail">
 
         <argument
-            android:name="title"
-            app:argType="string" />
+            android:name="courses"
+            app:argType="com.alex.hahow_recruit.data.Courses" />
     </fragment>
 
 

@@ -4,6 +4,8 @@ plugins {
 }
 
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 android {
     namespace 'com.alex.hahow_recruit'
@@ -34,6 +36,9 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 

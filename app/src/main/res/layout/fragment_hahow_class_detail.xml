@@ -5,9 +5,54 @@
     android:layout_height="match_parent"
     tools:context=".HahowClassDetailFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HahowClassDetailFragment" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageview_hahow_class"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hahow_class_tittle"
+                style="@style/CoursesTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="2"
+                tools:text="Node.js、MongoDB 網站後端工程入門" />
+
+            <TextView
+                android:id="@+id/hahow_class_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="彭彭" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="@string/temp_courses_description_text"
+                android:textSize="14dp"
+                android:textColor="@color/hahow_black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

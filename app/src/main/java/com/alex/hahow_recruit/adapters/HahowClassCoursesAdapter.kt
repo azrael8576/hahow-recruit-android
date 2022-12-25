@@ -2,9 +2,12 @@ package com.alex.hahow_recruit.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.alex.hahow_recruit.HahowClassListFragment
+import com.alex.hahow_recruit.HahowClassListFragmentDirections
 import com.alex.hahow_recruit.data.Courses
 import com.alex.hahow_recruit.databinding.ListFirstItemHahowClassBinding
 import com.alex.hahow_recruit.databinding.ListItemHahowClassBinding
@@ -92,6 +95,13 @@ class HahowClassCoursesAdapter : ListAdapter<Courses, RecyclerView.ViewHolder>(H
                 }
                 binding.hahowClassTittle.text = item.title
                 binding.hahowClassAuthor.text = item.name
+                binding.root.setOnClickListener{
+                    val direction =
+                        HahowClassListFragmentDirections.actionHahowClassListFragmentToHahowClassDetailFragment(
+                            item
+                        )
+                    it.findNavController().navigate(direction)
+                }
             }
         }
     }
