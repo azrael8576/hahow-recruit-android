@@ -1,5 +1,8 @@
 # hahow-recruit-android
-Cove Hahow 面試 IOS 小專案
+復刻 Hahow 面試 ios 小專案 by MVVM架構
+
+![image](https://github.com/azrael8576/hahow-recruit-android/blob/master/hahow-recruit-android.gif)
+
 
 
 # Hahow iOS Engineer 面試小專案
