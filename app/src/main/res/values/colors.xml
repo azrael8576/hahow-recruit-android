@@ -7,7 +7,7 @@
     <color name="hahow_green_500">#49bb79</color>
     <color name="hahow_green_700">#005d2b</color>
     <color name="hahow_green_900">#1a231e</color>
-    <color name="hahow_white">#deffffff</color>
+    <color name="hahow_white">#ffffffff</color>
     <color name="hahow_yellow_300">#f8f99f</color>
     <color name="hahow_yellow_500">#ffff63</color>
 </resources>
