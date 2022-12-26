@@ -1,3 +1,5 @@
+#### 這是一個基於MVVM架構+Jetpack的最佳實踐，UI 項目復刻 Hahow 面試 ios 工程師小專案
+
 ## Project Documentation
 
     ├─ adapters
