@@ -33,8 +33,16 @@
 * kotlin-android-extensions ：提供 Parcelize 注釋
 * navigation.safeargs ：Fragment 間資料傳遞
 
+## 備註
+#### 平板畫面未實作：由於本人電腦系統有問題，無法開啟模擬器。僅用實機開發手機畫面
+#### Data Binding 未做導入：本人習慣僅用 View Binding 開發
+
 
 ### 畫面呈現
 
 #### SAMSUNG GALAXY Note 5
 ![image](https://github.com/azrael8576/hahow-recruit-android/blob/master/hahow-recruit-android.gif)
+
+## 原需求文件
+[Hahow應徵ios工程師小專案](https://github.com/azrael8576/hahow-recruit-android/blob/master/HahowSourceDoc.MD "Hahow應徵ios工程師小專案")
+
